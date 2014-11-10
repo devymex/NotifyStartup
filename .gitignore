@@ -1,0 +1,10 @@
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.BASE
+*.REMOTE
+[Dd]ebug/*
+[Rr]elease/*
+x64/*
+ipch/*
