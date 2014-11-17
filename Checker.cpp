@@ -16,7 +16,20 @@ void CChecker::Startup()
 	m_mutex.Lock();
 	for (const auto &i : m_CmdList)
 	{
-		HINSTANCE hInst = ShellExecute(NULL, _T("open"), i.lpCmd, i.lpParams, i.lpDir, i.nShow);
+		std::basic_string<TCHAR> strDir;
+		if (i.lpDir != NULL)
+		{
+			strDir = i.lpDir;
+		}
+		if (strDir.empty())
+		{
+			strDir = i.lpCmd;
+			int nPos = strDir.find_last_of(_T('\\'));
+			int nCnt = strDir.length() - nPos;
+			strDir.erase(nPos, nCnt);
+		}
+		HINSTANCE hInst = ShellExecute(NULL, _T("open"), i.lpCmd,
+			i.lpParams, strDir.c_str(), i.nShow);
 		hInst = 0;
 	}
 	m_CmdList.clear();

@@ -30,6 +30,8 @@ int CMainWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	pChecker = new CNetChecker(this);
 	cmd.lpCmd = _T("C:\\Program Files (x86)\\Tencent\\TM\\Bin\\TM.exe");
 	pChecker->AddCmd(cmd);
+	cmd.lpCmd = _T("D:\\Applications\\privoxy\\privoxy.exe");
+	pChecker->AddCmd(cmd);
 	cmd.lpCmd = _T("C:\\Program Files (x86)\\Bitvise SSH Client\\BvSsh.exe");
 	cmd.lpParams = _T("-loginOnStartup");
 	cmd.nShow = SW_HIDE;
