@@ -24,7 +24,7 @@ void CChecker::Startup()
 		if (strDir.empty())
 		{
 			strDir = i.lpCmd;
-			int nPos = strDir.find_last_of(_T('\\'));
+			int nPos = strDir.find_last_of(_T('\\')) + 1;
 			int nCnt = strDir.length() - nPos;
 			strDir.erase(nPos, nCnt);
 		}
